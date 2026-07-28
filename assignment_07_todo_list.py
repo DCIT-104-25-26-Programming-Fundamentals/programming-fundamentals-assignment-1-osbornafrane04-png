@@ -55,48 +55,18 @@
 # YOUR CODE BELOW — remove the # symbols from the scaffold and fill it in
 # =============================================================================
 
-def add_task():
-    task = input("Enter task: ")
-    tasks.append(task)
-    print('Task added: "' + task + '"')
+# Function to print one table (from 1 to 12)
+def print_table(num):
+    print("Multiplication Table for " + str(num) + ":")
+    for i in range(1, 13):
+        print(str(num) + " x " + str(i) + " = " + str(num * i))
 
+# --- PART A: Single Table ---
+num = int(input("Enter a number: "))
+print_table(num)
 
-def view_tasks():
-    if not tasks:
-        print("Your to-do list is empty.")
-    else:
-        print("Your Tasks:")
-        for i in range(len(tasks)):
-            print(str(i + 1) + ". " + tasks[i])
-
-
-def delete_task():
-    view_tasks()
-    if tasks:
-        num = int(input("Enter task number to delete: "))
-        if 1 <= num <= len(tasks):
-            removed = tasks.pop(num - 1)
-            print('Task "' + removed + '" has been removed.')
-        else:
-            print("Invalid task number!")
-
-
-while True:
-    print("\n============================")
-    print("      TO-DO LIST MENU       ")
-    print("============================")
-    print("1. Add task\n2. View tasks\n3. Delete task\n4. Quit")
-
-    choice = input("Enter your choice (1-4): ")
-
-    if choice == "1":
-        add_task()
-    elif choice == "2":
-        view_tasks()
-    elif choice == "3":
-        delete_task()
-    elif choice == "4":
-        print("Goodbye!")
-        break
-    else:
-        print("Invalid choice!")
+# --- PART B: Tables from 1 to N ---
+n = int(input("\nEnter N for tables 1 to N: "))
+for i in range(1, n + 1):
+    print_table(i)
+    print("---------------------------")
